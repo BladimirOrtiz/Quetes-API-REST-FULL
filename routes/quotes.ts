@@ -11,7 +11,7 @@ import { authMiddleware } from "../middleware/auth.ts";
 
 const router = new Router();
 
-router.get("/api/v1/quotes",  getQuotes)
+router.get("/api/v1/quotes", authMiddleware, getQuotes)
   .get("/api/v1/quotes/:id", authMiddleware, getQuote)
   .get("/api/v1/quotes/:id", getQuote )
   .post("/api/v1/quotes",  addQuote)
